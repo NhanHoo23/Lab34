@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action="/api/add-car" method="post" enctype="application/x-www-form-urlencoded">
+      <label for="code">Mã xe:</label>
+      <input type="text" name="code" id="code" required><br><br>
+      <label for="color">Màu xe:</label>
+      <input type="text" name="color" id="color" required><br><br>
+      <label for="price">Giá xe:</label>
+      <input type="text" name="price" id="price" required><br><br>
+      
+      <input type="submit" value="Add Car">
+    </form>
+  </body>
+</html>
