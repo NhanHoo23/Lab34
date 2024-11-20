@@ -1,20 +1,13 @@
 const mongoose = require('mongoose');
-mongoose.set('strictQuery', true);
+const db = 'mongodb+srv://NhanHoo23:nhanhoo23@cluster1111.minu5.mongodb.net/Planta'
 
-const local = 'mongodb://localhost:27017/MyDatabase';
-const atlas = 'mongodb+srv://NhanHoo23:nhanhoo23@cluster1111.minu5.mongodb.net/MyDatabase?retryWrites=true&w=majority';
-
-const connect = () => {
-    mongoose.connect(local, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then(() => {
-        console.log('Connected to database');
-    })
-    .catch((error) => {
-        console.log('Error connecting to database: ' + error);
-    });
+const connectDB = async () => {
+    try {
+        await mongoose.connect(db);
+        console.log('MongoDB connected');
+    } catch (err) {
+        console.error(err.message);
+    }
 }
 
-module.exports = {connect};
+module.exports = { connectDB };
